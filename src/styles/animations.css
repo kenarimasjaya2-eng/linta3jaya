@@ -1,0 +1,253 @@
+/* Custom animations for CV LINTA 3 JAYA website */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Base animation classes */
+.scroll-animate {
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+.scroll-animate.animate-in {
+  opacity: 1;
+}
+
+.scroll-animate.fade-in-up {
+  transform: translateY(30px);
+}
+
+.scroll-animate.fade-in-up.animate-in {
+  transform: translateY(0);
+}
+
+.scroll-animate.slide-in-left {
+  transform: translateX(-30px);
+}
+
+.scroll-animate.slide-in-left.animate-in {
+  transform: translateX(0);
+}
+
+.scroll-animate.slide-in-right {
+  transform: translateX(30px);
+}
+
+.scroll-animate.slide-in-right.animate-in {
+  transform: translateX(0);
+}
+
+.scroll-animate.scale-in {
+  transform: scale(0.9);
+}
+
+.scroll-animate.scale-in.animate-in {
+  transform: scale(1);
+}
+
+/* Staggered animations */
+.scroll-animate.animate-in:nth-child(1) { transition-delay: 0.1s; }
+.scroll-animate.animate-in:nth-child(2) { transition-delay: 0.2s; }
+.scroll-animate.animate-in:nth-child(3) { transition-delay: 0.3s; }
+.scroll-animate.animate-in:nth-child(4) { transition-delay: 0.4s; }
+.scroll-animate.animate-in:nth-child(5) { transition-delay: 0.5s; }
+.scroll-animate.animate-in:nth-child(6) { transition-delay: 0.6s; }
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Water wave animation */
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-25%) translateY(-10px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.water-wave {
+  animation: wave 8s ease-in-out infinite;
+}
+
+/* Pulse animation for CTA buttons */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e40af;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Text gradient effect */
+.text-gradient {
+  background: linear-gradient(135deg, #1e3a8a, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card-hover:hover {
+  border-color: #fbbf24;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effects */
+.btn-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-hover:hover::before {
+  left: 100%;
+}
+
+/* Navigation scroll effect */
+.nav-scrolled {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Fade in animation for hero section */
+@keyframes hero-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  animation: hero-fade-in 1s ease-out forwards;
+}
+
+/* Stagger hero animations */
+.hero-animate:nth-child(1) { animation-delay: 0.2s; }
+.hero-animate:nth-child(2) { animation-delay: 0.4s; }
+.hero-animate:nth-child(3) { animation-delay: 0.6s; }
+.hero-animate:nth-child(4) { animation-delay: 0.8s; }
